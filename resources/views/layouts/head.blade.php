@@ -22,4 +22,4 @@
 		<link href="{{ asset('metronic/dist/assets/css/themes/layout/aside/dark.css?v=7.0.4') }}" rel="stylesheet" type="text/css" />
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="{{ asset('metronic/dist/assets/media/logos/favicon.ico') }}" />
-	</head>
+</head>
