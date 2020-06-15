@@ -11,7 +11,7 @@
 				<span></span>
 			</button>
 			<!--end::Aside Mobile Toggle-->
-			<!--begin::Header Menu Mobile Toggle-->
+			<!--begin::Header Menu Mobile Toggle
 			<button class="btn p-0 burger-icon ml-4" id="kt_header_mobile_toggle">
 				<span></span>
 			</button>
