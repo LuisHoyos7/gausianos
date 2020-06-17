@@ -5,31 +5,30 @@
     <title>Create &mdash; Onepage Website Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
     <link rel="stylesheet" href="create/fonts/icomoon/style.css">
-
     <link rel="stylesheet" href="{{ asset('create/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('create/css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('create/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('create/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('create/css/owl.theme.default.min.css') }}">
-
     <link rel="stylesheet" href="{{ asset('create/css/jquery.fancybox.min.css') }}">
-
     <link rel="stylesheet" href="{{ asset('create/css/bootstrap-datepicker.css') }}">
-
     <link rel="stylesheet" href="{{ asset('create/fonts/flaticon/font/flaticon.css') }}">
-
     <link rel="stylesheet" href="{{ asset('create/css/aos.css') }}">
-
     <link rel="stylesheet" href="{{ asset('create/css/style.css') }}">
-    
+    <link rel="stylesheet" href="{{ asset('create/css/intlTelInput.css') }}">
   </head>
+  <style>
+    .iti__flag {background-image: url("create/images/flags.png");}
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {background-image: url("create/images/flags@2x.png");}
+    }
+  </style>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
   
   <div class="site-wrap">
-
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
@@ -60,17 +59,15 @@
       </div> 
     </div>
 
+    <!--navar mobile -->
     <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
-
       <div class="container">
-        <div class="row align-items-center">
-          
+        <div class="row align-items-center">  
           <div class="col-11 col-xl-2">
               <img src="metronic/dist/assets/media/logos/logo-g-2.png" alt="" width="60px">
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
-
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li><a href="#work-section" class="nav-link">Work</a></li>
@@ -89,102 +86,89 @@
               </ul>
             </nav>
           </div>
-
-
-          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-
-        </div>
+        <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
       </div>
+    </div>
       
     </header>
-
+    <!-- seccion del formulario de cotrizacion y registro de clientes -->
     <section style="background-image: url('metronic/images/about_1.jpg'); margin-top:50px" data-aos="fade" data-stellar-background-ratio="0.5" class="site-section bg-teal" id="contact-section">
-
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-12 text-center">
-            <h3>Hacemos tus trabajos !cotizalo</h3>
-          </div>
-        </div>
         <div class="row">
-          <div class="col-md-7 mb-5">
-
-            
-
+          <div class="col-md-12 mb-0"> 
+            <!--inicio form -->
             <form action="#" class="p-5 bg-white">
-              
-              <h2 class="h4 text-black mb-5">Cotiza Aqui</h2> 
-
-              <div class="row form-group">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">Nombres</label>
-                  <input type="text" id="fname" class="form-control" placeholder="nombres">
-                </div>
-                <div class="col-md-6">
-                  <label class="text-black" for="lname">apellidos</label>
-                  <input type="text" id="lname" class="form-control" placeholder="apellidos">
-                </div>
+              <div class="col-12 text-center">
+                <h3>Hacemos tus Trabajos <big style="color:#0587d3">¡Cotizalo!</big></h3>
               </div>
+              <h2 class="h4 text-black mb-5">Datos personales</h2> 
               <div class="row form-group">
                 <div class="col-md-4">
-                  <label class="text-black" for="email">Pais</label> 
-                  <input type="email" id="email" class="form-control" placeholder="Elige un pais">
+                  <label class="text-black" for="fname">Nombres Completos</label>
+                  <input type="text" id="fname" class="form-control" placeholder="Tus nombre completo">
                 </div>
-                <div class="col-md-8">
-                  <label class="text-black" for="email">WhatSapp</label> 
-                  <input type="email" id="email" class="form-control" placeholder="Es para contactarnos contigo">
-                </div>
-              </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
+                <div class="col-md-4">
                   <label class="text-black" for="email">Correo</label> 
-                  <input type="email" id="email" class="form-control" placeholder="A este correo enviaremos tu cotizacion">
+                  <input type="email" id="email" class="form-control" placeholder="Aqui enviaremos tu cotizacion">
+                </div>
+                <div class="col-md-4">
+                  <label class="text-black">celular (WhatSapp)</label>
+                  <input type="text" id="phone" class="form-control" placeholder="pa charlar contigo">
                 </div>
               </div>
-
+              <h2 class="h4 text-black mb-5">Datos sobre tu tarea</h2> 
               <div class="row form-group">
-                
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Subject</label> 
-                  <input type="subject" id="subject" class="form-control">
+                <div class="col-md-3">
+                  <label class="text-black" for="subject">Fecha de Entrega</label> 
+                  <input type="date" id="subject" class="form-control">
+                </div>
+                <div class="col-md-2">
+                  <label class="text-black" for="message">Hora de Entrega</label> 
+                  <input  type="time" name="time" id="message" class="form-control" placeholder="Hora de entrega">
+                </div>
+                 <div class="col-md-3">
+                  <label class="text-black" for="email">Carrera</label> 
+                  <input type="email" id="email" class="form-control" placeholder="¿que estudias?">
+                </div>
+                 <div class="col-md-4">
+                  <label class="text-black" for="subject">Materia</label> 
+                  <input type="text" id="subject" class="form-control" placeholder="Escribe una asignatura">
                 </div>
               </div>
-
+              <div class="row form-group">
+                <div class="col-md-6">
+                  <label class="text-black" for="message">Tema</label> 
+                  <input  type="text" name="time" id="message" class="form-control" placeholder="Sobre que tema es tu tarea">
+                </div>
+                <div class="col-md-3">
+                  <label class="text-black" for="email">Tipo de Trabajo</label> 
+                  <input type="select" id="email" class="form-control" placeholder="selecciona">
+                </div>
+                <div class="col-md-3">
+                  <label class="text-black" for="subject">¿Alguna norma?</label> 
+                  <input type="text" id="subject" class="form-control" placeholder="Apa, Icontec...">
+                </div>
+              </div>
+              <h2 class="h4 text-black mb-5">Imformacion Detallada</h2> 
+              <div class="row form-group">
+                <div class="col-md-6">
+                  <label class="text-black" for="message">Descripcion</label> 
+                  <textarea  n id="message" class="form-control" rows="7" placeholder="Describe tu tarea"></textarea>
+                </div>
+                <div class="col-md-6">
+                  <label class="text-black" for="email">Abjunta los archivos de tu tarea</label> 
+                  <input type="file" id="email" class="form-control" placeholder="selecciona">
+                </div>
+              </div>
               <div class="row form-group">
                 <div class="col-md-12">
-                  <label class="text-black" for="message">Message</label> 
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                  <input type="submit" value="Enviar Cotizacion" class="btn btn-primary btn-md text-white">
                 </div>
               </div>
-
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
-                </div>
-              </div>
-
-  
             </form>
-          </div>
-          <div class="col-md-5">
-            
-            <div class="p-4 mb-3 bg-white">
-              <p class="mb-0 font-weight-bold">Address</p>
-              <p class="mb-4">203 Fake St. Mountain View, San Francisco, California, USA</p>
-
-              <p class="mb-0 font-weight-bold">Phone</p>
-              <p class="mb-4"><a href="#">+1 232 3235 324</a></p>
-
-              <p class="mb-0 font-weight-bold">Email Address</p>
-              <p class="mb-0"><a href="#">youremail@domain.com</a></p>
-
-            </div>
-            
           </div>
         </div>
       </div>
-    
     </section>
 
 
@@ -748,9 +732,13 @@
             </script>
 
   <script src=" {{ asset('create/create_js/main.js') }}"></script>
-  
-
-
+  <script src=" {{ asset('create/create_js/intlTelInput.js') }}"></script>
+  <script> 
+    var  input  =  document.querySelector("#phone"); 
+    window.intlTelInput (input, { 
+        utilsScript : "create/create_js/utils.js"
+    }) ; 
+  </script>
   </body>
 </html>
 
