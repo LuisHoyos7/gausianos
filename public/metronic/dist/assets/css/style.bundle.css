@@ -43,6 +43,16 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+ /* estilos reescritos*/
+
+ @media (min-width: 992px){
+
+  .header-fixed.subheader-fixed.subheader-enabled .wrapper {
+     padding-top: 90px !important;
+ }}
+
+
+
 html {
   font-family: sans-serif;
   line-height: 1.15;

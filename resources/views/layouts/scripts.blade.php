@@ -14,3 +14,29 @@
 		<script src="{{ asset('metronic/dist/assets/js/pages/custom/login/login-general.js?v=7.0.4') }}"></script>
 		<script src="{{ asset('metronic/dist/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js?v=7.0.4') }}"></script>
 		<script src="{{ asset('metronic/dist/assets/js/pages/widgets.js?v=7.0.4') }}"></script>
+		<script src="{{ asset('metronic/dist/assets/plugins/custom/datatables/datatables.bundle.js?v=7.0.5') }}"></script>
+		<script src="{{ asset('metronic/dist/assets/js/pages/crud/datatables/basic/headers.js?v=7.0.5') }}"></script>
+		
+		<script defer>
+            $(document).ready(function() {
+                $('#category').dataTable( {
+                "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                },
+                dom: 'Bfrtip',
+                buttons: [ 
+                {
+                    extend: 'excelHtml5',
+                    title: 'Reporte Estudiantes'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    title: 'Reporte Estudiantes',
+                    exportOptions: {
+                    columns: [0,1]
+                    }
+                }
+                ]
+                });
+            } );
+        </script>
