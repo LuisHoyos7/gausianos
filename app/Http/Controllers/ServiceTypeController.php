@@ -39,7 +39,8 @@ class ServiceTypeController extends Controller
 
         $request->session()->flash('serviceType.id', $serviceType->id);
 
-        return redirect()->route('serviceType.index');
+        return redirect()->route('service-type.index')
+            ->with('info','Servicio creado con Exito!');
     }
 
     /**
@@ -49,7 +50,7 @@ class ServiceTypeController extends Controller
      */
     public function show(Request $request, ServiceType $serviceType)
     {
-        return view('serviceType.show', compact('serviceType'));
+        return view('service-type.show', compact('serviceType'));
     }
 
     /**
@@ -73,7 +74,8 @@ class ServiceTypeController extends Controller
 
         $request->session()->flash('serviceType.id', $serviceType->id);
 
-        return redirect()->route('serviceType.index');
+        return redirect()->route('service-type.index')
+            ->with('success','Servicio actualizado con Exito!');
     }
 
     /**
@@ -85,6 +87,7 @@ class ServiceTypeController extends Controller
     {
         $serviceType->delete();
 
-        return redirect()->route('serviceType.index');
+        return redirect()->route('service-type.index')
+            ->with('error','Servicio eliminado con Exito!');
     }
 }

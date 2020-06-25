@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    workType.index template
+    @include('layouts.flash-message')
+    @include('workType.table')
 @endsection
+

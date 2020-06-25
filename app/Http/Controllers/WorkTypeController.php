@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\WorkTypeStoreRequest;
 use App\Http\Requests\WorkTypeUpdateRequest;
 use App\WorkType;
+use App\ServiceType;
 use Illuminate\Http\Request;
 
 class WorkTypeController extends Controller
@@ -26,7 +27,8 @@ class WorkTypeController extends Controller
      */
     public function create(Request $request)
     {
-        return view('workType.create');
+        $serviceType = ServiceType::pluck('name', 'id');
+        return view('workType.create', compact('serviceType'));
     }
 
     /**
@@ -39,7 +41,8 @@ class WorkTypeController extends Controller
 
         $request->session()->flash('workType.id', $workType->id);
 
-        return redirect()->route('workType.index');
+        return redirect()->route('work-type.index')
+            ->with('info', 'Tipo de trabajo creado con Exito!');
     }
 
     /**
@@ -58,8 +61,10 @@ class WorkTypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Request $request, WorkType $workType)
-    {
-        return view('workType.edit', compact('workType'));
+    {   
+        $serviceType = ServiceType::pluck('name', 'id');
+
+        return view('workType.edit', compact('workType', 'serviceType'));
     }
 
     /**
@@ -73,7 +78,8 @@ class WorkTypeController extends Controller
 
         $request->session()->flash('workType.id', $workType->id);
 
-        return redirect()->route('workType.index');
+        return redirect()->route('work-type.index')
+            ->with('success', 'Tipo de trabajo actualizado con Exito!');
     }
 
     /**
@@ -85,6 +91,7 @@ class WorkTypeController extends Controller
     {
         $workType->delete();
 
-        return redirect()->route('workType.index');
+        return redirect()->route('work-type.index')
+            ->with('error', 'Tipo de trabajo eliminado con Exito!');
     }
 }

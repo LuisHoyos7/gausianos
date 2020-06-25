@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    serviceType.create template
+    @include('serviceType.form')
 @endsection

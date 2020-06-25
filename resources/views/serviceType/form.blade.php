@@ -1,21 +1,21 @@
 
-@if(empty($category))
-{!! Form::open(['route' => 'category.store']) !!}
+@if(empty($serviceType))
+{!! Form::open(['route' => 'service-type.store']) !!}
 @else
-{!! Form::model($category, ['route' => ['category.update', $category->id], 'method' => 'PUT']) !!}
+{!! Form::model($serviceType, ['route' => ['service-type.update', $serviceType->id], 'method' => 'PUT']) !!}
 @endif
 <div class="card card-custom gutter-b example example-compact">
 	<div class="card-header">
 		<h3 class="card-title">
-			Categorias
+			Servicios
 		</h3>
   </div>
   <div class="card-body">
 		<div class="form-group form-group-last">
       <div class="row">
         <div class="col-md-8 offset-2">
-          {{ Form::label('Nombre de la categoria')}}
-          {{ Form::text('name', null, ['class'  => 'form-control', 'placeholder' => 'Ingesa el nombre de la categoria']) }}
+          {{ Form::label('Nombre del Servicio')}}
+          {{ Form::text('name', null, ['class'  => 'form-control', 'placeholder' => 'Ingesa el nombre del servicio']) }}
         </div>
       </div>
     </div>

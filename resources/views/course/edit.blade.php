@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    course.edit template
+    @include('course.form')
 @endsection

@@ -17,8 +17,8 @@
 				<div class="aside aside-left aside-fixed d-flex flex-column flex-row-auto" id="kt_aside">
 					<div class="brand flex-column-auto" id="kt_brand">
 						<!--inicio Logo-->
-							<a href="index.html" class="brand-logo">
-								<img alt="Logo" src="assets/media/logos/logo-light.png" />
+							<a href="{{route('home')}}" class="brand-logo" style="color: aliceblue; font-size:16px;">
+								Gausianos | App
 							</a>
 						<!--fin Logo-->
 
@@ -55,7 +55,9 @@
 					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 						<div class="d-flex flex-column-fluid">
 							<div class="container">
-								@yield('content')	
+								
+									@yield('content')	
+								
 							</div>
 						</div>
 					</div>

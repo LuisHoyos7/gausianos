@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    serviceType.index template
+    @include('layouts.flash-message')
+    @include('serviceType.table')
 @endsection
+

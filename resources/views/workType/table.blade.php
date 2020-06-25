@@ -2,12 +2,12 @@
 	<div class="card-header flex-wrap py-3">
 		<div class="card-title">
 			<h3 class="card-label">
-				Categorias
-				<span class="d-block text-muted pt-2 font-size-sm">Listado general de las categorias</span>
+				Tipos de Trabajos 
+				<span class="d-block text-muted pt-2 font-size-sm">Listado general de los Tipos de trabajos</span>
 			</h3>
 		</div>
 		<div class="card-toolbar">
-            <a href="{{route('category.create')}}" class="btn btn-primary font-weight-bolder">
+            <a href="{{route('work-type.create')}}" class="btn btn-primary font-weight-bolder">
                 <span class="svg-icon svg-icon-md"><!--begin::Svg Icon | path:/metronic/themes/metronic/theme/html/demo1/dist/assets/media/svg/icons/Design/Flatten.svg-->
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -31,23 +31,25 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
+                                <th>servicio</th>
                                 <th>Fecha de creacion</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($workTypes as $workType)
                             <tr>
-                                <td>{{$category->id}}</td>
-                                <td>{{$category->name}}</td>
-                                <td>{{$category->created_at}}</td>
+                                <td>{{$workType->id}}</td>
+                                <td>{{$workType->name}}</td>
+                                <td>{{$workType->serviceType->name}}</td>
+                                <td>{{$workType->created_at}}</td>
                                 <td>                                        
-                                    {{Form::open(['route' => ['category.destroy', $category->id], 'method' => 'DELETE'])}}
+                                    {{Form::open(['route' => ['work-type.destroy', $workType->id], 'method' => 'DELETE'])}}
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                             <a href="#" class="btn btn-icon btn-outline-primary btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Ver Categoria">
                                                 <i class="flaticon-eye"></i>
                                             </a>
-                                            <a href="{{route('category.edit', $category->id) }}" class="btn btn-icon btn-outline-success btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Editar Categoria">
+                                            <a href="{{route('work-type.edit', $workType->id) }}" class="btn btn-icon btn-outline-success btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Editar Categoria">
                                                 <i class="flaticon-doc"></i>
                                             </a>
                                             <button type="submit" class="btn btn-icon btn-outline-danger btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Eliminar Categoria">

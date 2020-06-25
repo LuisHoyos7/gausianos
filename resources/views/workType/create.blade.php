@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    workType.create template
+    @include('workType.form')
 @endsection

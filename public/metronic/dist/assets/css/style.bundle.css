@@ -44,12 +44,23 @@
   box-sizing: border-box; }
 
  /* estilos reescritos*/
-
  @media (min-width: 992px){
 
   .header-fixed.subheader-fixed.subheader-enabled .wrapper {
      padding-top: 90px !important;
  }}
+
+
+ .dataTables_wrapper .dataTables_paginate .pagination {
+  margin-top: 30px !important;
+}
+
+.btn-group, .btn-group-vertical {
+  float:right !important;
+}
+
+
+
 
 
 

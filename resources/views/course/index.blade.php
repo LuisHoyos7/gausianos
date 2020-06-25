@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    course.index template
+    @include('layouts.flash-message')
+    @include('course.table')
 @endsection
+

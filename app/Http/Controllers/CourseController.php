@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Category;
 use App\Http\Requests\CourseStoreRequest;
 use App\Http\Requests\CourseUpdateRequest;
 use Illuminate\Http\Request;
@@ -26,7 +27,9 @@ class CourseController extends Controller
      */
     public function create(Request $request)
     {
-        return view('course.create');
+        $category =  Category::pluck('name', 'id');
+
+        return view('course.create', compact('category'));
     }
 
     /**
@@ -39,7 +42,8 @@ class CourseController extends Controller
 
         $request->session()->flash('course.id', $course->id);
 
-        return redirect()->route('course.index');
+        return redirect()->route('course.index')
+            ->with('info', 'Curso creado con Exito!');
     }
 
     /**
@@ -59,7 +63,9 @@ class CourseController extends Controller
      */
     public function edit(Request $request, Course $course)
     {
-        return view('course.edit', compact('course'));
+        $category =  Category::pluck('name', 'id');
+
+        return view('course.edit', compact('category', 'course'));
     }
 
     /**
@@ -73,7 +79,8 @@ class CourseController extends Controller
 
         $request->session()->flash('course.id', $course->id);
 
-        return redirect()->route('course.index');
+        return redirect()->route('course.index')
+            ->with('success', 'Curso actualizado con Exito!');;
     }
 
     /**
@@ -85,6 +92,7 @@ class CourseController extends Controller
     {
         $course->delete();
 
-        return redirect()->route('course.index');
+        return redirect()->route('course.index')
+            ->with('error', 'Curso eliminado con Exito!');
     }
 }
