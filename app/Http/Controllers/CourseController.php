@@ -7,6 +7,7 @@ use App\Category;
 use App\Http\Requests\CourseStoreRequest;
 use App\Http\Requests\CourseUpdateRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CourseController extends Controller
 {
@@ -94,5 +95,12 @@ class CourseController extends Controller
 
         return redirect()->route('course.index')
             ->with('error', 'Curso eliminado con Exito!');
+    }
+
+    public function searchCourse(Category $category)
+    {
+       $courses =  $category->courses;
+
+        return Response()->json($courses);
     }
 }

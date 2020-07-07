@@ -40,3 +40,12 @@
                 });
             } );
         </script>
+
+<script>
+    $('#servicios').on('change', function (e) {
+
+      var servicio =  $("#servicios option:selected").text();
+
+      $('#name').val(servicio);
+    })
+</script>

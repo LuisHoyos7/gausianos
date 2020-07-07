@@ -70,7 +70,7 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
-                <li><a href="#work-section" class="nav-link">Work</a></li>
+                <li><a class="btn btn-info"  style="color: aliceblue" href="" id="cotizar" class="nav-link">Cotiza!</a></li>
                 <li>
                   <a href="#services-section" class="nav-link">Services</a>
                 </li>
@@ -97,7 +97,8 @@
         <div class="row">
           <div class="col-md-12 mb-0"> 
             <!--inicio form -->
-            <form action="#" class="p-5 bg-white">
+             <!--inicio form -->
+             {!! Form::open(['route' => 'user.store','class'=> 'p-5 bg-white' ]) !!}
               <div class="col-12 text-center">
                 <h3>Hacemos tus Trabajos <big style="color:#0587d3">¡Cotizalo!</big></h3>
               </div>
@@ -105,64 +106,78 @@
               <div class="row form-group">
                 <div class="col-md-4">
                   <label class="text-black" for="fname">Nombres Completos</label>
-                  <input type="text" id="fname" class="form-control" placeholder="Tus nombre completo">
+                  <input type="text" id="fname" name="name" class="form-control" placeholder="Tus nombre completo">
                 </div>
                 <div class="col-md-4">
                   <label class="text-black" for="email">Correo</label> 
-                  <input type="email" id="email" class="form-control" placeholder="Aqui enviaremos tu cotizacion">
+                  <input type="email" id="email" class="form-control" name = "mail" placeholder="Aqui enviaremos tu cotizacion">
                 </div>
                 <div class="col-md-4">
                   <label class="text-black">celular (WhatSapp)</label>
-                  <input type="text" id="phone" class="form-control" placeholder="pa charlar contigo">
+                  <input type="text" id="phone" class="form-control" name="mobile" placeholder="pa charlar contigo">
                 </div>
               </div>
               <h2 class="h4 text-black mb-5">Datos sobre tu tarea</h2> 
               <div class="row form-group">
                 <div class="col-md-3">
+                  <label class="text-black" for="subject">Categoria</label> 
+                  <select name="category_id" id="category" class="form-control">
+                  </select>
+                </div>
+                <div class="col-md-3" id="asignaturaOcultar">
+                  <label class="text-black" for="subject">Asignatura</label> 
+                  <select name="course_id" id="course" class="form-control">
+                  </select>
+                </div>
+                <div class="col-md-3" id="tipoServicioOcultar">
+                  <label class="text-black" for="subject">Tipo Servicio</label> 
+                  <select name="service_type_id" id="serviceType" class="form-control">
+                  </select>
+                </div>
+                <div class="col-md-3" id="tipoTrabajoOcultar">
+                  <label class="text-black" for="subject">Tipo Trabajo</label> 
+                  <select name="work_type_id" id="workType" class="form-control">
+                  </select>
+                </div>
+              </div>
+              <div class="row form-group">
+                <div class="col-md-6" id="temaOcultar">
+                  <label class="text-black" for="message">Temas</label> 
+                  <input  type="text" name="tema" id="message" class="form-control" placeholder="Sobre que tema es tu tarea">
+                </div>
+                <div class="col-md-3" id="fechaOcultar">
                   <label class="text-black" for="subject">Fecha de Entrega</label> 
-                  <input type="date" id="subject" class="form-control">
+                  <input type="date" id="fecha" class="form-control" placeholder="Escribe una asignatura">
                 </div>
-                <div class="col-md-2">
-                  <label class="text-black" for="message">Hora de Entrega</label> 
-                  <input  type="time" name="time" id="message" class="form-control" placeholder="Hora de entrega">
-                </div>
-                 <div class="col-md-3">
-                  <label class="text-black" for="email">Carrera</label> 
-                  <input type="email" id="email" class="form-control" placeholder="¿que estudias?">
-                </div>
-                 <div class="col-md-4">
-                  <label class="text-black" for="subject">Materia</label> 
-                  <input type="text" id="subject" class="form-control" placeholder="Escribe una asignatura">
+                <div class="col-md-3" id="horaOcultar">
+                  <label class="text-black" for="email">Hora de Entrega</label> 
+                  <input type="time" id="tipo-trabajo" class="form-control" placeholder="selecciona">
                 </div>
               </div>
-              <div class="row form-group">
-                <div class="col-md-6">
-                  <label class="text-black" for="message">Tema</label> 
-                  <input  type="text" name="time" id="message" class="form-control" placeholder="Sobre que tema es tu tarea">
-                </div>
-                <div class="col-md-3">
-                  <label class="text-black" for="email">Tipo de Trabajo</label> 
-                  <input type="select" id="email" class="form-control" placeholder="selecciona">
-                </div>
-                <div class="col-md-3">
-                  <label class="text-black" for="subject">¿Alguna norma?</label> 
-                  <input type="text" id="subject" class="form-control" placeholder="Apa, Icontec...">
-                </div>
-              </div>
-              <h2 class="h4 text-black mb-5">Imformacion Detallada</h2> 
-              <div class="row form-group">
-                <div class="col-md-6">
-                  <label class="text-black" for="message">Descripcion</label> 
-                  <textarea  n id="message" class="form-control" rows="7" placeholder="Describe tu tarea"></textarea>
-                </div>
-                <div class="col-md-6">
+              <h2 class="h4 text-black mb-5 informacionOcultar">Imformacion Detallada</h2> 
+              <div class="row form-group informacionOcultar">
+                <div class="col-md-4">
                   <label class="text-black" for="email">Abjunta los archivos de tu tarea</label> 
-                  <input type="file" id="email" class="form-control" placeholder="selecciona">
+                  <input type="file" id="imagenes" class="form-control" placeholder="selecciona">
+                </div>
+                <div class="col-md-4">
+                  <label class="text-black" for="email">Alguna Norma</label> 
+                  <input type="text" id="norma" class="form-control" placeholder="Alguna Norma">
+                </div>
+                <div class="col-md-4">
+                  <label class="text-black" for="email">Numero de paginas</label> 
+                  <input type="text" id="numberPage" class="form-control" placeholder="Numero de Paginas">
                 </div>
               </div>
-              <div class="row form-group">
+              <div class="row form-group informacionOcultar">
+                <div class="col-md-8 offset-2">
+                  <label class="text-black" for="message">Descripcion</label> 
+                  <textarea  id="descripcion" class="form-control" rows="5" placeholder="Describe tu tarea"></textarea>
+                </div>
+              </div>
+              <div class="row form-group informacionOcultar">
                 <div class="col-md-12">
-                  <input type="submit" value="Enviar Cotizacion" class="btn btn-primary btn-md text-white">
+                  <input type="submit" id="cotizacion" value="Enviar Cotizacion" class="btn btn-primary btn-md text-white">
                 </div>
               </div>
             </form>
@@ -739,7 +754,177 @@
         utilsScript : "create/create_js/utils.js"
     }) ; 
   </script>
-  </body>
+
+  <script>
+    $('#contact-section').hide();
+    $('#asignaturaOcultar').hide();
+    $('#tipoServicioOcultar').hide();
+    $('#tipoTrabajoOcultar').hide();
+    $('#temaOcultar').hide();
+    $('#fechaOcultar').hide();
+    $('#horaOcultar').hide();
+    $('.informacionOcultar').hide();
+        // si dan click en cotizar cargar el select dinamico con todas las categorias
+        $('#cotizar').click(function(e) {
+            e.preventDefault()
+            $('#contact-section').show();
+            //Listar Select de categorias cuando den click en cotizar
+            $.ajax({
+                url:  'cargarCategorias',
+                type: 'GET',
+                dataType: 'json'
+            })
+            .done(function (res) {
+                const respuesta = res
+                for (var i = 0; i < respuesta.length; i++){
+                  $('#category').append('<option value="' + respuesta[i].id + '">' + respuesta[i].name + '</option>');
+                }
+            })
+            .fail(function() {
+              console.log('error')
+            })
+        })
+
+        //cargar asignaturas mediante click en categorias
+        $('#category').on('change',function (e) {
+            e.preventDefault();
+
+            var category_id = $("#category").val();
+
+            if (category_id == 25 ) {
+            e.preventDefault();
+              $('#asignaturaOcultar').hide();
+              $('#tipoServicioOcultar').hide();
+              $('#tipoTrabajoOcultar').hide();
+              $('#temaOcultar').show();
+              $('#fechaOcultar').show();
+              $('#horaOcultar').show();
+              $('.informacionOcultar').show();
+           }
+
+            else if (category_id == 24){
+
+              $('#asignaturaOcultar').hide();
+              $('#tipoServicioOcultar').hide();
+              $('#tipoTrabajoOcultar').hide();
+              $('#temaOcultar').show();
+              $('#fechaOcultar').show();
+              $('#horaOcultar').show();
+              $('.informacionOcultar').show();
+            
+              $.ajax({
+                url:  'cargarTiposTrabajosEspecifico/' + 25,
+                type: 'GET',
+                dataType: 'json'
+              })
+           
+              .done(function (res) {
+                $('#tipoTrabajoOcultar').show();
+                $('#workType').empty();
+                  const respuesta = res
+                    for (var i = 0; i < respuesta.length; i++){
+                    $('#workType').append('<option value="' + respuesta[i].id + '">' + respuesta[i].name + '</option>');
+                  }
+                })
+              .fail(function() {
+                console.log('error')
+              })
+            }else {
+              $('#temaOcultar').hide();
+              $('#fechaOcultar').hide();
+              $('#horaOcultar').hide();
+              $('.informacionOcultar').hide();
+              $('#asignaturaOcultar').show();
+            var category_id = $("#category").val();
+
+            $.ajax({
+                url:  'cargarCursos/' + category_id,
+                type: 'GET',
+                dataType: 'json'
+            })
+           
+            .done(function (res) {
+              $('#course').empty();
+              $('#serviceType').empty();
+              $('#workType').empty();
+                const respuesta = res
+                for (var i = 0; i < respuesta.length; i++){
+                  $('#course').append('<option value="' + respuesta[i].id + '">' + respuesta[i].name + '</option>');
+                }
+            })
+            .fail(function() {
+              console.log('error')
+            })
+          
+
+            }
+           
+        })
+
+        //cargar los tipos de servicios que ofrece una asignatura 
+        $('#course').on('change', function (e) {
+          e.preventDefault();
+          $('#tipoServicioOcultar').show();
+          var course_id = $("#course").val();
+
+          $.ajax({
+                url:  'cargarServicios/' + course_id,
+                type: 'GET',
+                dataType: 'json'
+            })
+           
+            .done(function (res) {
+              $('#serviceType').empty();
+                const respuesta = res
+                for (var i = 0; i < respuesta.length; i++){
+                  $('#serviceType').append('<option value="' + respuesta[i].service_type_id + '">' + respuesta[i].name + '</option>');
+                }
+            })
+            .fail(function() {
+              console.log('error')
+            })
+        })
+
+        //cargar los tipos de trabajos mediante los tipos de servicios
+        $('#serviceType').on('change', function (e) {
+          e.preventDefault();
+          $('#tipoTrabajoOcultar').show();
+          var service_type_id = $("#serviceType").val();
+
+          $.ajax({
+                url:  'cargarTiposTrabajos/' + service_type_id,
+                type: 'GET',
+                dataType: 'json'
+            })
+           
+            .done(function (res) {
+              $('#temaOcultar').show();
+              $('#fechaOcultar').show();
+              $('#horaOcultar').show();
+              $('.informacionOcultar').show();
+              $('#workType').empty();
+                const respuesta = res
+                for (var i = 0; i < respuesta.length; i++){
+                  $('#workType').append('<option value="' + respuesta[i].id + '">' + respuesta[i].name + '</option>');
+                }
+            })
+            .fail(function() {
+              console.log('error')
+            })
+
+          })
+
+          
+      
+          // cuando la categoria sea igual a los trabajos escritos debe cargar los tipos de trabajos de los servicios (trabajos)
+
+        
+
+    
+       
+      
+
+  </script> 
 </html>
 
 

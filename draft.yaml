@@ -39,6 +39,12 @@ models:
   Image: 
     path    : string
     estimate_id : id foreign 
+  
+  ServiceCourse:
+    course_id: id foreign
+    service_type_id: id foreign
+    name : string nullable
+
 
 controllers:
   Customer:
@@ -60,6 +66,9 @@ controllers:
     resource
   
   Image: 
+    resource
+
+  ServiceCourse:
     resource
 
 seeders:  

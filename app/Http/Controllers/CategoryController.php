@@ -6,6 +6,8 @@ use App\Category;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 
 class CategoryController extends Controller
 {
@@ -89,5 +91,13 @@ class CategoryController extends Controller
 
         return redirect()->route('category.index')
             ->with('error','Categoria eliminada con exito!');
+    }
+
+
+    public function searchCategory()
+    {
+        $category = Category::all();
+
+        return Response()->json($category);
     }
 }

@@ -94,4 +94,20 @@ class WorkTypeController extends Controller
         return redirect()->route('work-type.index')
             ->with('error', 'Tipo de trabajo eliminado con Exito!');
     }
+
+    public function searchWorkType($id){
+
+        $WorkType = WorkType::where('service_type_id',$id)->get();
+
+        return Response()->json($WorkType);
+    }
+
+    public function searchWorkTypeEspecific($id){
+
+        $WorkTypeEspecific = WorkType::where('service_type_id',$id)->get();
+
+        return Response()->json($WorkTypeEspecific);
+    }
+
+
 }

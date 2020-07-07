@@ -1,55 +1,11 @@
-created:
-    - database/migrations/2020_06_19_165004_create_categories_table.php
-    - database/migrations/2020_06_19_165005_create_courses_table.php
-    - database/migrations/2020_06_19_165006_create_service_types_table.php
-    - database/migrations/2020_06_19_165007_create_work_types_table.php
-    - database/migrations/2020_06_19_165008_create_customers_table.php
-    - database/migrations/2020_06_19_165009_create_estimates_table.php
-    - database/migrations/2020_06_19_165010_create_images_table.php
-    - app/Category.php
-    - app/Course.php
-    - app/ServiceType.php
-    - app/WorkType.php
-    - app/Customer.php
-    - app/Estimate.php
-    - app/Image.php
-    - database/factories/CategoryFactory.php
-    - database/factories/CourseFactory.php
-    - database/factories/ServiceTypeFactory.php
-    - database/factories/WorkTypeFactory.php
-    - database/factories/CustomerFactory.php
-    - database/factories/EstimateFactory.php
-    - database/factories/ImageFactory.php
-    - database/seeds/CustomerSeeder.php
-    - database/seeds/CategorySeeder.php
-    - database/seeds/EstimateSeeder.php
-    - database/seeds/WorkTypeSeeder.php
-    - database/seeds/CourseSeeder.php
-    - database/seeds/SeviceTypeSeeder.php
-    - database/seeds/ImageSeeder.php
-    - app/Http/Controllers/CustomerController.php
-    - app/Http/Controllers/CategoryController.php
-    - app/Http/Controllers/EstimateController.php
-    - app/Http/Controllers/WorkTypeController.php
-    - app/Http/Controllers/ServiceTypeController.php
-    - app/Http/Controllers/CourseController.php
-    - app/Http/Controllers/ImageController.php
-    - tests/Feature/Http/Controllers/CustomerControllerTest.php
-    - tests/Feature/Http/Controllers/CategoryControllerTest.php
-    - tests/Feature/Http/Controllers/EstimateControllerTest.php
-    - tests/Feature/Http/Controllers/WorkTypeControllerTest.php
-    - tests/Feature/Http/Controllers/ServiceTypeControllerTest.php
-    - tests/Feature/Http/Controllers/CourseControllerTest.php
-    - tests/Feature/Http/Controllers/ImageControllerTest.php
-updated:
-    - routes/web.php
 models:
-    Category: { name: string, relationships: { hasMany: Course } }
-    Course: { name: string, category_id: 'id foreign' }
-    Cutomer: { name: string, mail: string, mobile: integer, user_id: biginteger }
-    Estimate: { course_id: 'id foreign', work_type_id: 'id foreign', customer_id: 'id foreign', delivery_date: date, delivery_hour: time, description: 'string:2000 nullable', theme: 'string nullable', sheets_number: 'string nullable', standard: 'string nullable', other_course: 'string nullable', other_work_type: 'string nullable' }
-    Image: { path: string, estimate_id: 'id foreign' }
-    ServiceType: { name: string, relationships: { hasMany: WorkType } }
+    Category: { name: string }
+    Course: { name: string, category_id: biginteger }
+    Customer: { name: string, mail: string, mobile: integer, user_id: biginteger }
+    Cutomer: {  }
+    Estimate: { course_id: biginteger, work_type_id: biginteger, customer_id: biginteger, delivery_date: date, delivery_hour: time, description: 'string:2000 nullable', theme: 'string nullable', sheets_number: 'string nullable', standard: 'string nullable', other_course: 'string nullable', other_work_type: 'string nullable' }
+    Image: { path: string, estimate_id: biginteger }
+    ServiceCourse: {  }
+    ServiceType: { name: string }
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
-    WorkType: { name: string, service_type_id: 'id foreign' }
-    Customer: { name: string, mail: 'unique string', mobile: 'unique integer', user_id: 'id foreign' }
+    WorkType: { name: string, service_type_id: biginteger }
