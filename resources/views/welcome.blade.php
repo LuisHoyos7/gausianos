@@ -187,6 +187,7 @@
     </section>
 
 
+    <!--
     <div class="site-blocks-cover overlay" style="background-image: url(images/hero_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
@@ -205,9 +206,6 @@
         </div>
       </div>
     </div>  
-
-
-    
 
     <section class="site-section">
       <div class="container">
@@ -368,7 +366,6 @@
         </div>
       </div>
     </section>
-
 
     <section class="site-section testimonial-wrap">
       <div class="container">
@@ -559,7 +556,6 @@
       </div>
     </div>
   
-    
     <div class="site-section border-bottom" id="team-section">
       <div class="container">
         <div class="row justify-content-center mb-5">
@@ -708,14 +704,14 @@
             <p>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. 
             </p>
             </div>
           </div>
           
         </div>
       </div>
-    </footer>
+    </footer> 
 
   </div> <!-- .site-wrap -->
 
