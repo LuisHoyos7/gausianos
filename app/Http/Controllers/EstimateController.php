@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Hash;
 use App\Estimate;
+use App\User;
+use App\Customer;
 use App\Http\Requests\EstimateStoreRequest;
 use App\Http\Requests\EstimateUpdateRequest;
 use Illuminate\Http\Request;
@@ -35,6 +37,19 @@ class EstimateController extends Controller
      */
     public function store(EstimateStoreRequest $request)
     {
+        $user = User::create([
+                    'name'      => $request->name,
+                    'email'     => $request->mail,
+                    'password' => Hash::make($request->mobile),
+                ]);
+
+        $user_id = User::last()->id;  
+
+        $customer = Customer::create([
+                        'user_id' => $user_id,
+                        'mobile'  => $request->mobile,
+        ]);
+        
         $estimate = Estimate::create($request->all());
 
         $request->session()->flash('estimate.id', $estimate->id);

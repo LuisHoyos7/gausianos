@@ -98,7 +98,7 @@
           <div class="col-md-12 mb-0"> 
             <!--inicio form -->
              <!--inicio form -->
-             {!! Form::open(['route' => 'user.store','class'=> 'p-5 bg-white' ]) !!}
+             {!! Form::open(['route' => 'estimate.store','class'=> 'p-5 bg-white' ]) !!}
               <div class="col-12 text-center">
                 <h3>Hacemos tus Trabajos <big style="color:#0587d3">¡Cotizalo!</big></h3>
               </div>
@@ -143,36 +143,36 @@
               <div class="row form-group">
                 <div class="col-md-6" id="temaOcultar">
                   <label class="text-black" for="message">Temas</label> 
-                  <input  type="text" name="tema" id="message" class="form-control" placeholder="Sobre que tema es tu tarea">
+                  <input  type="text" name="theme" id="message" class="form-control" placeholder="Sobre que tema es tu tarea">
                 </div>
                 <div class="col-md-3" id="fechaOcultar">
                   <label class="text-black" for="subject">Fecha de Entrega</label> 
-                  <input type="date" id="fecha" class="form-control" placeholder="Escribe una asignatura">
+                  <input type="date" id="fecha" name="delivery_date" class="form-control" placeholder="Escribe una asignatura">
                 </div>
                 <div class="col-md-3" id="horaOcultar">
                   <label class="text-black" for="email">Hora de Entrega</label> 
-                  <input type="time" id="tipo-trabajo" class="form-control" placeholder="selecciona">
+                  <input type="time" id="tipo-trabajo"  name="delivery_hour" class="form-control" placeholder="selecciona">
                 </div>
               </div>
               <h2 class="h4 text-black mb-5 informacionOcultar">Imformacion Detallada</h2> 
               <div class="row form-group informacionOcultar">
                 <div class="col-md-4">
                   <label class="text-black" for="email">Abjunta los archivos de tu tarea</label> 
-                  <input type="file" id="imagenes" class="form-control" placeholder="selecciona">
+                  <input type="file" id="imagenes" name="file" class="form-control" placeholder="selecciona">
                 </div>
                 <div class="col-md-4">
                   <label class="text-black" for="email">Alguna Norma</label> 
-                  <input type="text" id="norma" class="form-control" placeholder="Alguna Norma">
+                  <input type="text" id="norma" name="standard"class="form-control" placeholder="Alguna Norma">
                 </div>
                 <div class="col-md-4">
                   <label class="text-black" for="email">Numero de paginas</label> 
-                  <input type="text" id="numberPage" class="form-control" placeholder="Numero de Paginas">
+                  <input type="text" id="numberPage" name="sheets_number"class="form-control" placeholder="Numero de Paginas">
                 </div>
               </div>
               <div class="row form-group informacionOcultar">
                 <div class="col-md-8 offset-2">
                   <label class="text-black" for="message">Descripcion</label> 
-                  <textarea  id="descripcion" class="form-control" rows="5" placeholder="Describe tu tarea"></textarea>
+                  <textarea  id="descripcion" name="description" class="form-control" rows="5" placeholder="Describe tu tarea"></textarea>
                 </div>
               </div>
               <div class="row form-group informacionOcultar">
