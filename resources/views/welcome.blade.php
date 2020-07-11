@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('create/css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('create/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('create/css/intlTelInput.css') }}">
+    @include('layouts.flash-message')
   </head>
   <style>
     .iti__flag {background-image: url("create/images/flags.png");}
@@ -909,17 +910,6 @@
             })
 
           })
-
-          
-      
-          // cuando la categoria sea igual a los trabajos escritos debe cargar los tipos de trabajos de los servicios (trabajos)
-
-        
-
-    
-       
-      
-
   </script> 
 </html>
 

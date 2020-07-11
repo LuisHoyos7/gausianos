@@ -37,24 +37,87 @@ class EstimateController extends Controller
      */
     public function store(EstimateStoreRequest $request)
     {
+    
+    $user_exist = User::where('email' , $request->mail)->get();
+    $customer_exist = Customer::where('mobile', $request->mobile)->get();
+    //validamos si la persona que hace la cotizacion existe en el sistema 
+    //si es asi solo le creamos la cotizacion, si no le creamos el usuario
+    if(!$user_exist->isEmpty() || !$customer_exist->isEmpty()){
+    
+
+       if(!$user_exist->isEmpty() && $customer_exist->isEmpty()) {
+            $customer_id = Customer::where('user_id', $user_exist->first()->id)->get();
+            
+            $estimate = Estimate::create([
+                'course_id' => $request->cuorse,
+                'work_type_id' => $request->workType,
+                'customer_id' => $customer_id->first()->id,
+                'delivery_date' => $request->delivery_date,
+                'delivery_hour' => $request->delivery_hour,
+                'description' => $request->description,
+                'theme' => $request->theme,    
+                'sheets_number' => $request->sheets_number,   
+                'standard' => $request->standard,       
+            ]);
+        }
+
+        if($user_exist->isEmpty()  && !$customer_exist->isEmpty()) {
+            $estimate = Estimate::create([
+                'course_id' => $request->cuorse,
+                'work_type_id' => $request->workType,
+                'customer_id' => $customer_exist->first()->id,
+                'delivery_date' => $request->delivery_date,
+                'delivery_hour' => $request->delivery_hour,
+                'description' => $request->description,
+                'theme' => $request->theme,    
+                'sheets_number' => $request->sheets_number,   
+                'standard' => $request->standard,       
+            ]);
+        }
+
+        if(!$user_exist->isEmpty()  && !$customer_exist->isEmpty()) {
+            $estimate = Estimate::create([
+                'course_id' => $request->cuorse,
+                'work_type_id' => $request->workType,
+                'customer_id' => $customer_exist->first()->id,
+                'delivery_date' => $request->delivery_date,
+                'delivery_hour' => $request->delivery_hour,
+                'description' => $request->description,
+                'theme' => $request->theme,    
+                'sheets_number' => $request->sheets_number,   
+                'standard' => $request->standard,       
+            ]);
+        }
+        
+    }  else {
+
         $user = User::create([
                     'name'      => $request->name,
                     'email'     => $request->mail,
                     'password' => Hash::make($request->mobile),
-                ]);
-
-        $user_id = User::last()->id;  
-
+                ]); 
+        
         $customer = Customer::create([
-                        'user_id' => $user_id,
+                        'user_id' => $user->id,
                         'mobile'  => $request->mobile,
         ]);
-        
-        $estimate = Estimate::create($request->all());
 
+        $estimate = Estimate::create([
+            'course_id' => $request->cuorse,
+            'work_type_id' => $request->workType,
+            'customer_id' => $customer->id,
+            'delivery_date' => $request->delivery_date,
+            'delivery_hour' => $request->delivery_hour,
+            'description' => $request->description,
+            'theme' => $request->theme,    
+            'sheets_number' => $request->sheets_number,   
+            'standard' => $request->standard,       
+        ]);
+        }
         $request->session()->flash('estimate.id', $estimate->id);
 
-        return redirect()->route('estimate.index');
+        return redirect()->route('welcome')
+            ->with('success', 'Su cotizacion se ha creado con exito, En unos minutos nos comunicaremos con Usted');
     }
 
     /**
