@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    estimate.index template
+    @include('layouts.flash-message')
+    @include('estimate.table')
 @endsection
+

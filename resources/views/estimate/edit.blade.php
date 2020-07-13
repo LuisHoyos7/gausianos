@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-    estimate.edit template
+    @include('category.form')
 @endsection

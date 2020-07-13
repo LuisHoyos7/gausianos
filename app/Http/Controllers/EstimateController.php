@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Estimate;
 use App\User;
 use App\Customer;
+use App\Image;
 use App\Http\Requests\EstimateStoreRequest;
 use App\Http\Requests\EstimateUpdateRequest;
 use Illuminate\Http\Request;
@@ -37,8 +38,11 @@ class EstimateController extends Controller
      */
     public function store(EstimateStoreRequest $request)
     {
-    
+
+    $files = $request->file('image');
+
     $user_exist = User::where('email' , $request->mail)->get();
+
     $customer_exist = Customer::where('mobile', $request->mobile)->get();
     //validamos si la persona que hace la cotizacion existe en el sistema 
     //si es asi solo le creamos la cotizacion, si no le creamos el usuario
@@ -49,22 +53,34 @@ class EstimateController extends Controller
             $customer_id = Customer::where('user_id', $user_exist->first()->id)->get();
             
             $estimate = Estimate::create([
-                'course_id' => $request->cuorse,
-                'work_type_id' => $request->workType,
+                'course_id' => $request->cuorse_id,
+                'work_type_id' => $request->work_type_id,
                 'customer_id' => $customer_id->first()->id,
                 'delivery_date' => $request->delivery_date,
                 'delivery_hour' => $request->delivery_hour,
                 'description' => $request->description,
                 'theme' => $request->theme,    
                 'sheets_number' => $request->sheets_number,   
-                'standard' => $request->standard,       
+                'standard' => $request->standard,
             ]);
+
+            foreach($files as $file){
+                $destino = storage_path('app/public/');
+                $fileName = time().'.'.$file->getClientOriginalExtension();
+                $file->move($destino, $fileName);
+                
+                Image::create([
+                    'path' => $fileName,
+                    'estimate_id' => $estimate->first()->id,
+                ]);
+            }
+           
         }
 
         if($user_exist->isEmpty()  && !$customer_exist->isEmpty()) {
             $estimate = Estimate::create([
-                'course_id' => $request->cuorse,
-                'work_type_id' => $request->workType,
+                'course_id' => $request->cuorse_id,
+                'work_type_id' => $request->work_type_id,
                 'customer_id' => $customer_exist->first()->id,
                 'delivery_date' => $request->delivery_date,
                 'delivery_hour' => $request->delivery_hour,
@@ -73,12 +89,23 @@ class EstimateController extends Controller
                 'sheets_number' => $request->sheets_number,   
                 'standard' => $request->standard,       
             ]);
+
+            foreach($files as $file){
+                $destino = storage_path('app/public/');
+                $fileName = time().'.'.$file->getClientOriginalExtension();
+                $file->move($destino, $fileName);
+                
+                Image::create([
+                    'path' => $fileName,
+                    'estimate_id' => $estimate->id,
+                ]);
+            }
         }
 
         if(!$user_exist->isEmpty()  && !$customer_exist->isEmpty()) {
             $estimate = Estimate::create([
-                'course_id' => $request->cuorse,
-                'work_type_id' => $request->workType,
+                'course_id' => $request->cuorse_id,
+                'work_type_id' => $request->work_type_id,
                 'customer_id' => $customer_exist->first()->id,
                 'delivery_date' => $request->delivery_date,
                 'delivery_hour' => $request->delivery_hour,
@@ -87,6 +114,17 @@ class EstimateController extends Controller
                 'sheets_number' => $request->sheets_number,   
                 'standard' => $request->standard,       
             ]);
+
+            foreach($files as $file){
+                $destino = storage_path('app/public/');
+                $fileName = time().'.'.$file->getClientOriginalExtension();
+                $file->move($destino, $fileName);
+                
+                Image::create([
+                    'path' => $fileName,
+                    'estimate_id' => $estimate->id,
+                ]);
+            }
         }
         
     }  else {
@@ -103,8 +141,8 @@ class EstimateController extends Controller
         ]);
 
         $estimate = Estimate::create([
-            'course_id' => $request->cuorse,
-            'work_type_id' => $request->workType,
+            'course_id' => $request->course_id,
+            'work_type_id' => $request->work_type_id,
             'customer_id' => $customer->id,
             'delivery_date' => $request->delivery_date,
             'delivery_hour' => $request->delivery_hour,
@@ -113,6 +151,17 @@ class EstimateController extends Controller
             'sheets_number' => $request->sheets_number,   
             'standard' => $request->standard,       
         ]);
+
+        foreach($files as $file){
+            $destino = storage_path('app/public/');
+            $fileName = uniqid().'_'.time().'.'.$file->getClientOriginalExtension();
+            $file->move($destino, $fileName);
+            
+            Image::create([
+                'path' => $fileName,
+                'estimate_id' => $estimate->id,
+            ]);
+        }
         }
         $request->session()->flash('estimate.id', $estimate->id);
 

@@ -99,7 +99,7 @@
           <div class="col-md-12 mb-0"> 
             <!--inicio form -->
              <!--inicio form -->
-             {!! Form::open(['route' => 'estimate.store','class'=> 'p-5 bg-white' ]) !!}
+             {!! Form::open(['route' => 'estimate.store','class'=> 'p-5 bg-white' , 'files' => true]) !!}
               <div class="col-12 text-center">
                 <h3>Hacemos tus Trabajos <big style="color:#0587d3">¡Cotizalo!</big></h3>
               </div>
@@ -159,7 +159,7 @@
               <div class="row form-group informacionOcultar">
                 <div class="col-md-4">
                   <label class="text-black" for="email">Abjunta los archivos de tu tarea</label> 
-                  <input type="file" id="imagenes" name="file" class="form-control" placeholder="selecciona">
+                  <input type="file" id="imagenes" multiple name="image[]" class="form-control" placeholder="selecciona">
                 </div>
                 <div class="col-md-4">
                   <label class="text-black" for="email">Alguna Norma</label> 
