@@ -1,3 +1,17 @@
+created:
+    - database/migrations/2020_08_03_195837_create_asesors_table.php
+    - app/Asesor.php
+    - database/factories/AsesorFactory.php
+    - app/Http/Controllers/AsesorController.php
+    - app/Http/Requests/AsesorStoreRequest.php
+    - app/Http/Requests/AsesorUpdateRequest.php
+    - resources/views/asesor/index.blade.php
+    - resources/views/asesor/create.blade.php
+    - resources/views/asesor/show.blade.php
+    - resources/views/asesor/edit.blade.php
+    - tests/Feature/Http/Controllers/AsesorControllerTest.php
+updated:
+    - routes/web.php
 models:
     Category: { name: string }
     Course: { name: string, category_id: biginteger }
@@ -9,3 +23,4 @@ models:
     ServiceType: { name: string }
     User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }
     WorkType: { name: string, service_type_id: biginteger }
+    Asesor: { name: string, mobile: string, specialty: varchar, mail: varchar, observation: varchar }

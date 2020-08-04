@@ -38,3 +38,6 @@ Route::get('cargarTiposTrabajos/{id}', 'WorkTypeController@searchWorkType');
 
 Route::get('cargarTiposTrabajosEspecifico/{id}', 'WorkTypeController@searchWorkTypeEspecific');
 
+
+
+Route::resource('asesor', 'AsesorController');

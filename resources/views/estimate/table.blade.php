@@ -29,18 +29,18 @@
                     <table class="table table-head-custom table-hover table-vertical-center" id="category" role="grid" aria-describedby="kt_datatable_info">
 			            <thead class="thead-light">
                             <tr>
-                                <th>Id</th>
-                                <th>Categoria</th>
+                                <th>Cotizacion</th>
+                              <!--  <th>Categoria</th> -->
                                 <th>Asignatura</th>
                                 <th>Tipo Servicio</th>
                                 <th>Tipo de Trabajo</th>
                                 <th>Cliente</th>
                                 <th>Fecha Entrega</th>
                                 <th>Hora Entrega</th>
-                                <th>Temas</th>
+                                <!--<th>Temas</th>
                                 <th>Paginas</th>
                                 <th>Normas</th>
-                                <th>Descripcion</th>
+                                <th>Descripcion</th> -->
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -49,13 +49,13 @@
                             <tr>
                                 <td>{{$estimate->id}}</td>
                                
-                                <td> 
-                                    @if(!empty($estimate->course_id))
+                              <!--  <td> 
+                                  {{--  @if(!empty($estimate->course_id))
                                     {{$estimate->course->category->name}} 
                                     @else
                                     Otros - Trabajos Escritos
-                                    @endif
-                                </td>
+                                    @endif --}}
+                                </td> -->
                                 <td>
                                     @if(!empty($estimate->course_id))
                                     {{$estimate->course->name}}  
@@ -74,10 +74,10 @@
                                 <td>{{$estimate->customer->user->name}}</td>
                                 <td>{{$estimate->delivery_date}}</td>
                                 <td>{{$estimate->delivery_hour}}</td>
-                                <td>{{$estimate->theme}}</td>
+                               {{--} <td>{{$estimate->theme}}</td>
                                 <td>{{$estimate->sheets_number}}</td>
                                 <td>{{$estimate->standard}}</td>
-                                <td>{{$estimate->description}}</td>
+                                <td>{{$estimate->description}}</td> --}}
                                 <td>                                        
                                     {{Form::open(['route' => ['estimate.destroy', $estimate->id], 'method' => 'DELETE'])}}
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">

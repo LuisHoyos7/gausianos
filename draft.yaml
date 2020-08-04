@@ -1,78 +1,13 @@
 models:
-  Category:
-    name     : string
-    relationships:
-      hasMany: Course
-
-  Course:
-    name      : string
-    category_id : id foreign 
-
-  ServiceType:
-    name : string
-    relationships:
-      hasMany: WorkType
-
-  WorkType:
-    name            : string 
-    service_type_id : id foreign 
-
-  Customer:
-    name    :  string 
-    mail    :  unique string 
-    mobile  :  unique integer 
-    user_id :  id foreign
-  
-  Estimate:
-    course_id      : id foreign 
-    work_type_id   : id foreign 
-    customer_id    : id foreign 
-    delivery_date  : date 
-    delivery_hour  : time 
-    description    : string:2000 nullable
-    theme          : string nullable
-    sheets_number  : string nullable
-    standard       : string nullable
-    other_course   : string nullable 
-    other_work_type : string nullable
-
-  Image: 
-    path    : string
-    estimate_id : id foreign 
-  
-  ServiceCourse:
-    course_id: id foreign
-    service_type_id: id foreign
-    name : string nullable
-
+  Asesor:
+    name: string 
+    mobile : string 
+    specialty : varchar
+    mail : varchar 
+    observation : varchar 
 
 controllers:
-  Customer:
+  Asesor:
     resource
-
-  Category:
-    resource
-
-  Estimate:
-    resource
-    
-  WorkType:
-    resource
-
-  ServiceType:
-    resource
-
-  Course:
-    resource
-  
-  Image: 
-    resource
-
-  ServiceCourse:
-    resource
-
-seeders:  
-   Customer, Category, Estimate, WorkType, Course, SeviceType, Image
-  
   
 
