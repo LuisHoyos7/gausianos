@@ -23,6 +23,8 @@ class Estimate extends Model
         'standard',
         'other_course',
         'other_work_type',
+        'asesor_id',
+        'price'
     ];
 
     /**

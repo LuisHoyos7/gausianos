@@ -17,6 +17,8 @@ Route::resource('customer', 'CustomerController');
 Route::resource('category', 'CategoryController');
 
 Route::resource('estimate', 'EstimateController');
+Route::put('estimate/{estimate}', 'EstimateController@estimateAddPrice')->name('estimateAddPrice');
+
 
 Route::resource('work-type', 'WorkTypeController');
 

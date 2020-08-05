@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Estimate;
 use App\User;
 use App\Customer;
+use App\Asesor;
 use App\Image;
 use App\Http\Requests\EstimateStoreRequest;
 use App\Http\Requests\EstimateUpdateRequest;
@@ -18,9 +19,11 @@ class EstimateController extends Controller
      */
     public function index(Request $request)
     {
+        $asesor = Asesor::pluck('name', 'id');
+
         $estimates = Estimate::all();
 
-        return view('estimate.index', compact('estimates'));
+        return view('estimate.index', compact('estimates', 'asesor'));
     }
 
     /**
@@ -213,5 +216,9 @@ class EstimateController extends Controller
         $estimate->delete();
 
         return redirect()->route('estimate.index');
+    }
+
+    public function estimateAddPrice(Estimate $estimate, Request $request){
+        dd($estimate);
     }
 }
