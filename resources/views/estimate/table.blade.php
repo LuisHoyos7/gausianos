@@ -120,33 +120,4 @@
 
 
 <!-- Modal-->
-{!! Form::open(['route' => ['estimateAddPrice', $estimate->id], 'method' => 'PUT']) !!}
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Precio del Trabajo</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i aria-hidden="true" class="ki ki-close"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-8">
-                        {{ Form::label('Asigne un asesor')}}
-                        {{ Form::select('asesor_id',$asesor, null, ['class'  => 'form-control', 'placeholder' => 'Asigne un Asesor']) }}
-                    </div>
-                    <div class="col-md-4">
-                        {{ Form::label('Precio Cotizacion')}}
-                        {{ Form::text('price', null, ['class'  => 'form-control', 'placeholder' => 'Fije un Precio']) }}
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Salir</button>
-                <button type="submit" class="btn btn-primary font-weight-bold">Registrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-{!! Form::close() !!}
+
