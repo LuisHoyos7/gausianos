@@ -72,7 +72,7 @@ class CategoryController extends Controller
      */
     public function update(CategoryUpdateRequest $request, Category $category)
     {
-        $category->update([]);
+        $category->update($request->all());
 
         $request->session()->flash('category.id', $category->id);
 
