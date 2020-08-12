@@ -16,7 +16,7 @@
 		<script src="{{ asset('metronic/dist/assets/js/pages/widgets.js?v=7.0.4') }}"></script>
 		<script src="{{ asset('metronic/dist/assets/plugins/custom/datatables/datatables.bundle.js?v=7.0.5') }}"></script>
 		<script src="{{ asset('metronic/dist/assets/js/pages/crud/datatables/basic/headers.js?v=7.0.5') }}"></script>
-		
+		<script src="{{ asset('metronic/dist/assets/js/pages/crud/forms/widgets/select2.js?v=7.0.8') }}"></script>
 		<script defer>
             $(document).ready(function() {
                 $('#category').dataTable( {
@@ -48,4 +48,12 @@
 
       $('#name').val(servicio);
     })
+</script>
+
+<script>
+    $("#categoryId").select2({
+			placeholder: "Selecciona una categoria",
+			language: "es",
+			allowClear: true,
+		});
 </script>

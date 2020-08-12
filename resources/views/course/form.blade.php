@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-6">
           {{ Form::label('Elija Una Categoria')}}
-          {{ Form::select('category_id',$category, null, ['class'  => 'form-control']) }}
+          {{ Form::select('category_id',$category, null, ['class'  => 'form-control','id' => 'categoryId','placeholder' => 'seleccione una categoria', 'required']) }}
         </div>
       </div>
     </div>
