@@ -66,7 +66,11 @@ class ServiceCourseController extends Controller
      */
     public function edit(Request $request, ServiceCourse $serviceCourse)
     {
-        return view('serviceCourse.edit', compact('serviceCourse'));
+        $serviceType = ServiceType::pluck('name', 'id');
+
+        $course = Course::pluck('name', 'id');
+
+        return view('serviceCourse.edit', compact('serviceCourse','serviceType','course'));
     }
 
     /**
@@ -76,7 +80,7 @@ class ServiceCourseController extends Controller
      */
     public function update(ServiceCourseUpdateRequest $request, ServiceCourse $serviceCourse)
     {
-        $serviceCourse->update([]);
+        $serviceCourse->update($request->all());
 
         $request->session()->flash('serviceCourse.id', $serviceCourse->id);
 
