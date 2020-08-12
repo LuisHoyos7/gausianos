@@ -24,8 +24,6 @@ class ServiceCourse extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'course_id' => 'integer',
-        'service_id' => 'integer',
     ];
 
 
