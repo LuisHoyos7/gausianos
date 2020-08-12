@@ -44,9 +44,6 @@
                                 <td>                                        
                                     {{Form::open(['route' => ['category.destroy', $category->id], 'method' => 'DELETE'])}}
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <a href="#" class="btn btn-icon btn-outline-primary btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Ver Categoria">
-                                                <i class="flaticon-eye"></i>
-                                            </a>
                                             <a href="{{route('category.edit', $category->id) }}" class="btn btn-icon btn-outline-success btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Editar Categoria">
                                                 <i class="flaticon-doc"></i>
                                             </a>

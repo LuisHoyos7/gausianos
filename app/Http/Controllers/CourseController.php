@@ -76,7 +76,7 @@ class CourseController extends Controller
      */
     public function update(CourseUpdateRequest $request, Course $course)
     {
-        $course->update([]);
+        $course->update($request->all());
 
         $request->session()->flash('course.id', $course->id);
 
