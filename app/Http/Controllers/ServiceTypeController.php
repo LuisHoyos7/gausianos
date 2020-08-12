@@ -70,7 +70,7 @@ class ServiceTypeController extends Controller
      */
     public function update(ServiceTypeUpdateRequest $request, ServiceType $serviceType)
     {
-        $serviceType->update([]);
+        $serviceType->update($request->all());
 
         $request->session()->flash('serviceType.id', $serviceType->id);
 
