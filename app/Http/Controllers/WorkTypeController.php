@@ -74,7 +74,7 @@ class WorkTypeController extends Controller
      */
     public function update(WorkTypeUpdateRequest $request, WorkType $workType)
     {
-        $workType->update([]);
+        $workType->update($request->all());
 
         $request->session()->flash('workType.id', $workType->id);
 
