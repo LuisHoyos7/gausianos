@@ -56,4 +56,17 @@
 			language: "es",
 			allowClear: true,
 		});
+
+        $("#serviceTypeId").select2({
+			placeholder: "Selecciona un servicio",
+			language: "es",
+			allowClear: true,
+		});
+
+
+        $("#courseId").select2({
+			placeholder: "Selecciona una asignatura",
+			language: "es",
+			allowClear: true,
+		});
 </script>
