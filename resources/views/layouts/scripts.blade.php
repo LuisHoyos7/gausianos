@@ -69,4 +69,10 @@
 			language: "es",
 			allowClear: true,
 		});
+
+		$("#serviceType").select2({
+			placeholder: "Selecciona un servicio",
+			language: "es",
+			allowClear: true,
+		});
 </script>

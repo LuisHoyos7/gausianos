@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-6">
           {{ Form::label('Elija Un Tipo de Servicio')}}
-          {{ Form::select('service_type_id',$serviceType, null, ['class'  => 'form-control']) }}
+          {{ Form::select('service_type_id',$serviceType, null, ['class'  => 'form-control','id' => 'serviceType','placeholder' =>'seleccione el tipo de servicio']) }}
         </div>
       </div>
     </div>
