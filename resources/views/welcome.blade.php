@@ -121,7 +121,7 @@
               <h2 class="h4 text-black mb-5">Datos sobre tu tarea</h2> 
               <div class="row form-group">
                 <div class="col-md-3">
-                  <label class="text-black" for="subject">Categoria</label> 
+                  <label class="text-black" for="subject">Categoría</label> 
                   <select name="category_id" id="category" class="form-control">
                     <option>Seleccione</option>
                   </select>
@@ -160,11 +160,11 @@
               <h2 class="h4 text-black mb-5 informacionOcultar">Imformacion Detallada</h2> 
               <div class="row form-group informacionOcultar">
                 <div class="col-md-6">
-                  <label class="text-black" for="email">Abjunta los archivos de tu tarea</label> 
+                  <label class="text-black" for="email">Adjunta los archivos de tu tarea</label> 
                   <input type="file" id="imagenes" multiple name="image[]" class="form-control" placeholder="selecciona">
                 </div>
                 <div class="col-md-6">
-                  <label class="text-black" for="message">Descripcion</label> 
+                  <label class="text-black" for="message">Descripción</label> 
                   <textarea  id="descripcion" name="description" class="form-control" rows="5" placeholder="Describe tu tarea"></textarea>
                 </div>
               </div>
@@ -180,8 +180,8 @@
     </section>
 
 
-    <!--
-    <div class="site-blocks-cover overlay" style="background-image: url(images/hero_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+
+    <div class="site-blocks-cover overlay" style="background-image: url('metronic/images/about_1.jpg')" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center text-center">
 
@@ -189,9 +189,7 @@
                         
             <div class="row justify-content-center mb-4">
               <div class="col-md-8 text-center">
-                <h1>We Love To Build <span class="typed-words"></span></h1>
-                <p class="lead mb-5">Free Web Template by <a href="#" target="_blank">Colorlib</a></p>
-                <div><a data-fancybox data-ratio="2" href="https://vimeo.com/317571768" class="btn btn-primary btn-md">Watch Video</a></div>
+                <h1>Los Gaussianos <span class="typed-words"></span></h1>
               </div>
             </div>
 
@@ -206,7 +204,7 @@
           <div class="col-md-6 col-lg-4">
             <div class="p-3 box-with-humber">
               <div class="number-behind">01.</div>
-              <h2 class="text-primary">Innovate</h2>
+              <h2 class="text-primary">Cotiza</h2>
               <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et praesentium eos nulla qui commodi consectetur beatae fugiat. Veniam iste rerum perferendis.</p>
               <ul class="list-unstyled ul-check primary">
                 <li>Customer Experience</li>
@@ -219,7 +217,7 @@
           <div class="col-md-6 col-lg-4">
             <div class="p-3 box-with-humber">
               <div class="number-behind">02.</div>
-              <h2 class="text-primary">Create</h2>
+              <h2 class="text-primary">Espera tu Cotizacion</h2>
               <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et praesentium eos nulla qui commodi consectetur beatae fugiat. Veniam iste rerum perferendis.</p>
               <ul class="list-unstyled ul-check primary">
                 <li>Web Design</li>
@@ -232,7 +230,7 @@
           <div class="col-md-6 col-lg-4">
             <div class="p-3 box-with-humber">
               <div class="number-behind">03.</div>
-              <h2 class="text-primary">Scale</h2>
+              <h2 class="text-primary">Cumple con tus Trabajos</h2>
               <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et praesentium eos nulla qui commodi consectetur beatae fugiat. Veniam iste rerum perferendis.</p>
               <ul class="list-unstyled ul-check primary">
                 <li>Social Media</li>
@@ -245,6 +243,7 @@
       </div>
     </section>
 
+    <!--
     <section class="site-section" id="work-section">
       <div class="container">
         <div class="row mb-5 justify-content-center">
@@ -426,82 +425,49 @@
           </div>
 
         </div>
-    </section>
+    </section> -->
 
     <section class="site-section border-bottom" id="services-section">
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-8 text-center" data-aos="fade-up">
-            <h2 class="text-black h1 site-section-heading text-center">Our Services</h2>
+            <h2 class="text-black h1 site-section-heading text-center">Nuestros Servicios</h2>
           </div>
         </div>
         <div class="row align-items-stretch">
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+          <div class="col-md-4">
             <div class="unit-4 d-flex">
               <div class="unit-4-icon mr-4"><span class="text-primary icon-laptop2"></span></div>
               <div>
-                <h3>Web Design</h3>
+                <h3>Tutorias</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-shopping_cart"></span></div>
-              <div>
-                <h3>eCommerce</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-4">
             <div class="unit-4 d-flex">
               <div class="unit-4-icon mr-4"><span class="text-primary icon-question_answer"></span></div>
               <div>
-                <h3>Web Applications</h3>
+                <h3>Trabajos</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
                 <p><a href="#">Learn More</a></p>
               </div>
             </div>
           </div>
-
-
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-format_paint"></span></div>
-              <div>
-                <h3>Branding</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-extension"></span></div>
-              <div>
-                <h3>Copy Writing</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">
+          <div class="col-md-4">
             <div class="unit-4 d-flex">
               <div class="unit-4-icon mr-4"><span class="text-primary icon-phonelink"></span></div>
-              <div>
-                <h3>Mobile Applications</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
-                <p><a href="#">Learn More</a></p>
+                <div>
+                  <h3>Evaluaciones</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>
+                  <p><a href="#">Learn More</a></p>
               </div>
             </div>
           </div>
-
         </div>
       </div>
-    </section>
+  </section>
 
     <div class="site-section" id="about-section">
       <div class="container">
@@ -516,7 +482,7 @@
 
               <div class="col-12">
                 <div class="text-left pb-1">
-                  <h2 class="text-black h1 site-section-heading">About Us</h2>
+                  <h2 class="text-black h1 site-section-heading">Sobre Nosotros</h2>
                 </div>
               </div>
               <div class="col-12 mb-4">
@@ -526,7 +492,7 @@
                 <div class="unit-4">
                   <div class="unit-4-icon mr-4 mb-3"><span class="text-secondary icon-phonelink"></span></div>
                   <div>
-                    <h3>Web &amp; Mobile Specialties</h3>
+                    <h3>Misión</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis consect.</p>
                     <p class="mb-0"><a href="#">Learn More</a></p>
                   </div>
@@ -536,7 +502,7 @@
                 <div class="unit-4">
                   <div class="unit-4-icon mr-4 mb-3"><span class="text-secondary icon-extension"></span></div>
                   <div>
-                    <h3>Intuitive Thinkers</h3>
+                    <h3>Visión</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis.</p>
                     <p class="mb-0"><a href="#">Learn More</a></p>
                   </div>
@@ -553,7 +519,7 @@
       <div class="container">
         <div class="row justify-content-center mb-5">
           <div class="col-md-7 text-center">
-            <h2 class="text-black h1 site-section-heading">Our Team</h2>
+            <h2 class="text-black h1 site-section-heading">Nuestro Equipo</h2>
           </div>
         </div>
         <div class="row">
@@ -603,46 +569,6 @@
       </div>
     </div>
 
-    <section class="site-section" id="blog-section">
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-8 text-center">
-            <h2 class="text-black h1 site-section-heading text-center">Blog</h2>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <a href="single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
-              <h2 class="font-size-regular"><a href="single.html">Create Beautiful Website In Less Than An Hour</a></h2>
-              <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-              <p><a href="#">Continue Reading...</a></p>
-            </div> 
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <a href="single.html"><img src="images/img_2.jpg" alt="Image" class="img-fluid"></a>
-              <h2 class="font-size-regular"><a href="single.html">Create Beautiful Website In Less Than An Hour</a></h2>
-              <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-              <p><a href="#">Continue Reading...</a></p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">
-            <div class="h-entry">
-              <a href="single.html"><img src="images/img_1.jpg" alt="Image" class="img-fluid"></a>
-              <h2 class="font-size-regular"><a href="single.html">Create Beautiful Website In Less Than An Hour</a></h2>
-              <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>
-              <p><a href="#">Continue Reading...</a></p>
-            </div> 
-          </div>
-          
-        </div>
-      </div>
-    </section>
 
     <a href="#" class="bg-primary py-5 d-block">
       <div class="container">
@@ -725,7 +651,7 @@
   <script src="{{ asset('create/create_js/typed.js') }}"></script>
             <script>
             var typed = new Typed('.typed-words', {
-            strings: ["Web Apps"," WordPress"," Mobile Apps"],
+            strings: ["Tu Mejor Opción"," Cotiza ya Tu Tarea","Especialistas en lo que Hacemos"],
             typeSpeed: 80,
             backSpeed: 80,
             backDelay: 4000,
