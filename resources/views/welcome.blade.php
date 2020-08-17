@@ -73,17 +73,21 @@
                 <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li><a class="btn btn-info"  style="color: aliceblue" href="" id="cotizar" class="nav-link">Cotiza!</a></li>
                 <li>
-                  <a href="#services-section" class="nav-link">Services</a>
+                  <a href="#services-section" class="nav-link">Servicios</a>
                 </li>
-                <li class="has-children">
-                  <a href="#about-section" class="nav-link">About</a>
-                  <ul class="dropdown">
-                    <li><a href="#about-section">Specialties</a></li>
-                    <li><a href="#team-section">Our Team</a></li>
-                  </ul>
+                <li>
+                  <a href="#about-section" class="nav-link">Nosotros</a>
                 </li>
-                <li><a href="#blog-section" class="nav-link">Blog</a></li>
-                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                <li><a href="#blog-section" class="nav-link">Asesores</a></li>
+                <li><a href="#contact-section" class="nav-link">Contacto</a></li>
+                @if (Route::has('login'))
+                    @auth
+                      <li><a href="{{ route('/home') }}" class="nav-link">Inicio</a></li>
+                    @else
+                      <li><a href="{{ route('login') }}" class="nav-link">Ingresa</a></li>
+                    @endauth
+                </div>
+            @endif
               </ul>
             </nav>
           </div>
