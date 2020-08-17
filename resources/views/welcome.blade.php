@@ -123,11 +123,13 @@
                 <div class="col-md-3">
                   <label class="text-black" for="subject">Categoria</label> 
                   <select name="category_id" id="category" class="form-control">
+                    <option>Seleccione</option>
                   </select>
                 </div>
                 <div class="col-md-3" id="asignaturaOcultar">
                   <label class="text-black" for="subject">Asignatura</label> 
-                  <select name="course_id" id="course" class="form-control">
+                  <select name="course_id" id="course" class="form-control" >
+                    <option value="selecione"></option>
                   </select>
                 </div>
                 <div class="col-md-3" id="tipoServicioOcultar">
@@ -157,21 +159,11 @@
               </div>
               <h2 class="h4 text-black mb-5 informacionOcultar">Imformacion Detallada</h2> 
               <div class="row form-group informacionOcultar">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <label class="text-black" for="email">Abjunta los archivos de tu tarea</label> 
                   <input type="file" id="imagenes" multiple name="image[]" class="form-control" placeholder="selecciona">
                 </div>
-                <div class="col-md-4">
-                  <label class="text-black" for="email">Alguna Norma</label> 
-                  <input type="text" id="norma" name="standard"class="form-control" placeholder="Alguna Norma">
-                </div>
-                <div class="col-md-4">
-                  <label class="text-black" for="email">Numero de paginas</label> 
-                  <input type="text" id="numberPage" name="sheets_number"class="form-control" placeholder="Numero de Paginas">
-                </div>
-              </div>
-              <div class="row form-group informacionOcultar">
-                <div class="col-md-8 offset-2">
+                <div class="col-md-6">
                   <label class="text-black" for="message">Descripcion</label> 
                   <textarea  id="descripcion" name="description" class="form-control" rows="5" placeholder="Describe tu tarea"></textarea>
                 </div>
@@ -773,6 +765,7 @@
             })
             .done(function (res) {
                 const respuesta = res
+                $('#category').append('<option>' + 'seleecione' + '</option>');
                 for (var i = 0; i < respuesta.length; i++){
                   $('#category').append('<option value="' + respuesta[i].id + '">' + respuesta[i].name + '</option>');
                 }
@@ -819,6 +812,8 @@
                 $('#tipoTrabajoOcultar').show();
                 $('#workType').empty();
                   const respuesta = res
+                   $('#workType').append('<option>' + 'seleccione'+ '</option>');
+
                     for (var i = 0; i < respuesta.length; i++){
                     $('#workType').append('<option value="' + respuesta[i].id + '">' + respuesta[i].name + '</option>');
                   }
@@ -845,6 +840,7 @@
               $('#serviceType').empty();
               $('#workType').empty();
                 const respuesta = res
+                $('#course').append('<option>' + 'seleccione' + '</option>');
                 for (var i = 0; i < respuesta.length; i++){
                   $('#course').append('<option value="' + respuesta[i].id + '">' + respuesta[i].name + '</option>');
                 }
@@ -873,8 +869,9 @@
             .done(function (res) {
               $('#serviceType').empty();
                 const respuesta = res
+                $('#serviceType').append('<option>' +  'seleccione' + '</option>');
                 for (var i = 0; i < respuesta.length; i++){
-                  $('#serviceType').append('<option value="' + respuesta[i].service_type_id + '">' + respuesta[i].name + '</option>');
+                  $('#serviceType').append('<option value="'+ respuesta[i].service_type_id + '">' +  respuesta[i].name + '</option>');
                 }
             })
             .fail(function() {
@@ -901,7 +898,9 @@
               $('.informacionOcultar').show();
               $('#workType').empty();
                 const respuesta = res
+                $('#workType').append('<option>' + 'seleccione' + '</option>');
                 for (var i = 0; i < respuesta.length; i++){
+                  
                   $('#workType').append('<option value="' + respuesta[i].id + '">' + respuesta[i].name + '</option>');
                 }
             })
