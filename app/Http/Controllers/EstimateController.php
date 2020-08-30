@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use App\Estimate;
+use App\Mail\EstimateMail;
+use Illuminate\Support\Facades\Mail;
 use App\User;
 use App\Customer;
 use App\Asesor;
@@ -218,7 +220,34 @@ class EstimateController extends Controller
         return redirect()->route('estimate.index');
     }
 
-    public function estimateAddPrice(Estimate $estimate, Request $request){
-        dd($estimate);
+    public function estimateAddPrice(Request $request){
+
+        Estimate::where('id',$request->estimaId)
+            ->update(['asesor_id' => $request->asesor_id,'price' => $request->price,'estado' => 'COTIZADA']);
+
+        return redirect()->route('estimate.index');
+    }
+
+    public function estimateMail(Estimate $estimate){
+
+        $user =  $estimate->customer->user;
+        
+        $datos = [
+            'name' => $estimate->customer->user->name,
+            'price' => $estimate->price,
+            'date' => $estimate->delivery_date,
+            'mail' => $estimate->customer->user->email,
+            'mobile' => $estimate->customer->mobile,
+        ];
+
+        $userMail = $user->email;
+
+        Mail::send('mails.estimate-mail', $datos, function ($message) use ($userMail){
+
+            $message->subject('Cotizacion de Su Tarea');
+        
+            $message->to($userMail);
+       });
+       return redirect()->route('estimate.index');
     }
 }

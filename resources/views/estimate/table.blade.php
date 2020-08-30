@@ -29,12 +29,13 @@
                     <table class="table table-head-custom table-hover table-vertical-center" id="category" role="grid" aria-describedby="kt_datatable_info">
 			            <thead class="thead-light">
                             <tr>
-                                <th>Cotizacion</th>
-                              <!--  <th>Categoria</th> -->
-                                <th>Asignatura</th>
+                              <!--<th>Cotizacion</th>
+                               <th>Categoria</th> 
+                                <th>Asignatura</th>-->
                                 <th>Tipo Servicio</th>
                                 <th>Tipo de Trabajo</th>
                                 <th>Cliente</th>
+                                <th>Asesor</th>
                               <!--  <th>Fecha Entrega</th>
                                 <th>Hora Entrega</th> -->
                                 <th>Estado</th>
@@ -44,26 +45,25 @@
                                 <th>Normas</th>
                                 <th>Descripcion</th> -->
                                 <th>Acciones</th>
-                                <th></th>
+                               
                             </tr>
                         </thead>
                         <tbody>
                         @foreach ($estimates as $estimate)
                             <tr>
-                                <td>{{$estimate->id}}</td>
-                               
-                              <!--  <td> 
-                                  {{--  @if(!empty($estimate->course_id))
+                             {{--   <td>{{$estimate->id}}</td>
+                                <td> 
+                                   @if(!empty($estimate->course_id))
                                     {{$estimate->course->category->name}} 
                                     @else
                                     Otros - Trabajos Escritos
-                                    @endif --}}
-                                </td> -->
+                                    @endif 
+                                </td> 
                                 <td>
                                     @if(!empty($estimate->course_id))
                                     {{$estimate->course->name}}  
                                     @endif
-                                </td> 
+                                </td> --}}
                                 <td>
                                     @if(!empty($estimate->work_type_id))
                                     {{$estimate->workType->serviceType->name}}
@@ -75,32 +75,33 @@
                                     @endif
                                 </td>
                                 <td>{{$estimate->customer->user->name}}</td>
+
+                                <td>
+                                    @if(!empty($estimate->asesor_id))
+                                    {{$estimate->asesor->name}}
+                                    @endif
+                                </td>
                                {{-- <td>{{$estimate->delivery_date}}</td>
                                 <td>{{$estimate->delivery_hour}}</td> --}}
                                 <td>{{$estimate->estado}}</td>
-                                <td>{{$estimate->price}}</td>
+                                <td>${{$estimate->price}}</td>
                                {{--} <td>{{$estimate->theme}}</td>
                                 <td>{{$estimate->sheets_number}}</td>
                                 <td>{{$estimate->standard}}</td>
                                 <td>{{$estimate->description}}</td> --}}
-                                <td>
-                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                        <a href="#" class="btn btn-icon btn-outline-warning btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Enviar por Correo">
-                                            <i class="flaticon-mail"></i>
-                                        </a>
-                                        <button type="button" class="btn btn-icon btn-outline-primary btn-shadow font-weight-bold" data-id="{{$estimate->id}}" data-toggle="modal" data-target="#exampleModal" title="Cotizar">
-                                            <i class="flaticon-mail"></i>
-                                        </button>
-                                    </div>
-                                </td>
+                            
                                 <td>                                        
                                     {{Form::open(['route' => ['estimate.destroy', $estimate->id], 'method' => 'DELETE'])}}
                                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                            <a href="{{route('estimate.edit', $estimate->id) }}" class="btn btn-icon btn-outline-success btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Editar Categoria">
-                                                <i class="flaticon-doc"></i>
-                                            </a>
-                                            <button type="submit" class="btn btn-icon btn-outline-danger btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Inactivar">
+                
+                                            <button type="submit" class="btn btn-icon btn-outline-danger btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Eliminar">
                                                 <i class="flaticon-delete-1"></i>
+                                            </button>
+                                            <a href="{{route('estimateMail',$estimate->id)}}" class="btn btn-icon btn-outline-warning btn-shadow font-weight-bold" data-toggle="tooltip" data-theme="dark" title="Enviar por Correo">
+                                                <i class="flaticon-mail"></i>
+                                            </a>
+                                            <button  type="button"  id="idEstimate" class="idEstimate btn  btn-outline-primary btn-shadow font-weight-bold" value="{{$estimate->id}}" data-toggle="modal" data-target="#exampleModal" title="Cotizar" title="Editar Categoria">
+                                                Cotizar
                                             </button>
                                         </div>
                                     {{Form::close()}}
@@ -121,7 +122,7 @@
 
 <!-- Modal-->
 @if(!@empty($estimate))
-{!! Form::open(['route' => ['estimateAddPrice', $estimate->id], 'method' => 'PUT']) !!}
+{!! Form::open(['route' => ['estimateAddPrice', 'id' => $estimate->id ], 'method' => 'PUT']) !!}
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -141,6 +142,12 @@
                         {{ Form::label('Precio Cotizacion')}}
                         {{ Form::text('price', null, ['class'  => 'form-control', 'placeholder' => 'Fije un Precio']) }}
                     </div>
+                </div><br><br>
+                <div class="row">
+                    <div class="col-md-4 offset-4">
+                        {{ Form::label('Cotizacion Numero')}}
+                        {{ Form::number('estimaId', null, ['class'  => 'form-control', 'id'  => 'estimaId','readonly' ]) }}
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -152,3 +159,4 @@
 </div>
 {!! Form::close() !!}
 @endif
+

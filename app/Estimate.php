@@ -54,4 +54,9 @@ class Estimate extends Model
     {
         return $this->belongsTo(\App\Customer::class);
     }
+
+    public function asesor()
+    {
+        return $this->belongsTo(\App\Asesor::class);
+    }
 }

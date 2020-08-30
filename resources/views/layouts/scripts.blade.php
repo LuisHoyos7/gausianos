@@ -39,6 +39,29 @@
                 ]
                 });
             } );
+
+
+			$(document).ready(function() {
+                $('#customer').dataTable( {
+                "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+                },
+                dom: 'Bfrtip',
+                buttons: [ 
+                {
+                    extend: 'excelHtml5',
+                    title: 'Reporte Estudiantes'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    title: 'Reporte Estudiantes',
+                    exportOptions: {
+                    columns: [0,1]
+                    }
+                }
+                ]
+                });
+            } );
         </script>
 
 <script>
@@ -75,4 +98,11 @@
 			language: "es",
 			allowClear: true,
 		});
+</script>
+
+<script>
+    $('.idEstimate').on('click', function (e) {
+    var id = $(this).parents("tr").find('.idEstimate').val();
+    $('#estimaId').val(id);
+    })
 </script>

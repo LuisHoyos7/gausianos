@@ -44,8 +44,8 @@
         <div class="row">
           <div class="col-md-6">
             <p class="mb-0">
-              <span class="mr-3"><strong class="text-white">Phone:</strong> <a href="tel://#">+1 234 5678 9101</a></span>
-              <span><strong class="text-white">Email:</strong> <a href="#">info@yourdomain.com</a></span>
+              <span class="mr-3"><strong class="text-white">Celular:</strong> <a href="tel://#">+57 3008933494</a></span>
+              <span><strong class="text-white">Correo:</strong> <a href="#">gaussianosoficial@gmail.com</a></span>
             </p>
           </div>
           <div class="col-md-6">
@@ -82,12 +82,11 @@
                 <li><a href="#contact-section" class="nav-link">Contacto</a></li>
                 @if (Route::has('login'))
                     @auth
-                      <li><a href="{{ route('/home') }}" class="nav-link">Inicio</a></li>
+                      <li><a href="{{ route('home') }}" class="nav-link">Inicio</a></li>
                     @else
                       <li><a href="{{ route('login') }}" class="nav-link">Ingresa</a></li>
                     @endauth
-                </div>
-            @endif
+                @endif
               </ul>
             </nav>
           </div>
@@ -127,13 +126,13 @@
                 <div class="col-md-3">
                   <label class="text-black" for="subject">Categoría</label> 
                   <select name="category_id" id="category" class="form-control">
-                    <option>Seleccione</option>
+                  
                   </select>
                 </div>
                 <div class="col-md-3" id="asignaturaOcultar">
                   <label class="text-black" for="subject">Asignatura</label> 
                   <select name="course_id" id="course" class="form-control" >
-                    <option value="selecione"></option>
+                  
                   </select>
                 </div>
                 <div class="col-md-3" id="tipoServicioOcultar">
